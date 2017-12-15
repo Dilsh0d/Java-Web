@@ -1,5 +1,5 @@
 # java-simple-web
-This is project to show how can setup simple web project and authentication,regiter, add user forms will show for examples with codes
+This is project to show how can setup in Java simple web project and authentication,register, add user forms will show for examples with codes
 1. User Authentication and Identification server side logic
 2. Java JDBC connection with PostgreSql
 3. Password bcrypt example
