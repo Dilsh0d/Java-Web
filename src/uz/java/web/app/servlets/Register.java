@@ -1,6 +1,7 @@
 package uz.java.web.app.servlets;
 
 import uz.java.web.app.dao.UserDao;
+import uz.java.web.app.email.EmailSend;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -44,6 +45,7 @@ public class Register extends HttpServlet {
             UserDao userDao = new UserDao();
             if (!userDao.hasUsername(userName)) {
                 userDao.createUser(userName,password1,firtName,lastName);
+                EmailSend.sendEmail(userName,password1,firtName,lastName);
                 resp.sendRedirect("/login");
             } else {
                 antiBot(req,resp);
