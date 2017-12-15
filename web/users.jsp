@@ -1,4 +1,6 @@
-<%@ page import="uz.java.web.app.dto.UserData" %><%--
+<%@ page import="uz.java.web.app.dto.UserData" %>
+<%@ page import="java.util.List" %>
+<%@ page import="uz.java.web.app.dao.UserDao" %><%--
   Created by IntelliJ IDEA.
   User: dilsh0d
   Date: 06.10.2017
@@ -52,32 +54,40 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Users <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="#">Foydalanuvchilar <span class="sr-only">(current)</span></a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header" style="color:red">Dashboard</h1>
 
-            <h2 class="sub-header">Section title</h2>
+            <h2 class="sub-header">Ruyhat</h2>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
+                        <th>E-mail</th>
+                        <th>Ismi</th>
+                        <th>Familiyasi</th>
+                        <th>Admin</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1,001</td>
-                        <td>Lorem</td>
-                        <td>ipsum</td>
-                        <td>dolor</td>
-                        <td>sit</td>
-                    </tr>
+                    <%
+                        UserDao userDao = new UserDao();
+                        List<UserData> userDataList = userDao.getUserList();
+
+                        for(UserData data:userDataList){
+                            out.print("<tr>");
+                            out.print("<td>"+data.getId()+"</td>");
+                            out.print("<td>"+data.getUsername()+"</td>");
+                            out.print("<td>"+data.getFirstname()+"</td>");
+                            out.print("<td>"+data.getLastname()+"</td>");
+                            out.print("<td>"+data.isAdmin()+"</td>");
+                            out.print("</tr>");
+                        }
+                    %>
+
 
                     </tbody>
                 </table>

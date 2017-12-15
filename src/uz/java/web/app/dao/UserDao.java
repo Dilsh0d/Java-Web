@@ -63,7 +63,8 @@ public class UserDao {
                 userData.setUsername(rs.getString(2));
                 userData.setPassword(rs.getString(3));
                 userData.setFirstname(rs.getString(4));
-                userData.setAdmin(rs.getBoolean(5));
+                userData.setLastname(rs.getString(5));
+                userData.setAdmin(rs.getBoolean(6));
                 userDataList.add(userData);
             }
             st.close();
