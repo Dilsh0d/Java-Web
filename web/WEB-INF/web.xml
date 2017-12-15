@@ -4,6 +4,10 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <session-config>
+        <session-timeout>1</session-timeout>
+    </session-config>
+
     <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>uz.java.web.app.servlets.Login</servlet-class>
@@ -19,6 +23,11 @@
         <servlet-class>uz.java.web.app.servlets.Logouts</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>uz.java.web.app.servlets.Register</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -29,11 +38,26 @@
         <url-pattern>/users</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
 
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>SecurityFilter</filter-name>
+        <filter-class>uz.java.web.app.filter.SecurityFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>SecurityFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 
     <welcome-file-list>

@@ -37,6 +37,11 @@
                 <input type="checkbox" value="remember-me"> Eslab qolish
             </label>
         </div>
+        <div class="checkbox">
+            <label>
+                <a href="/register">Ro'yxatdan o'tish</a>
+            </label>
+        </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Kirish</button>
     </form>
 
